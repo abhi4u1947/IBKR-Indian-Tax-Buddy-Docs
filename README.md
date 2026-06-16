@@ -1,36 +1,30 @@
-# IBKR-Indian-Tax-Buddy-Docs
+# IBKR Indian Tax Assistant — Documentation
 
-Documentation website for [IBKR Indian Tax Buddy](https://github.com/abhi4u1947/IBKR-Indian-Tax-Buddy),
-built with [Jekyll](https://jekyllrb.com/) and the
-[just-the-docs](https://just-the-docs.com/) theme and published with GitHub
-Pages.
+The published documentation website for the **IBKR Indian Tax Assistant**.
 
-## Live site
+🌐 **Live site:** https://abhi4u1947.github.io/IBKR-Indian-Tax-Buddy-Docs/
 
-Once deployed, the site is available at:
+> ⚠️ **Reference assistance only.** All tax computations are **estimates** and
+> **must be reviewed and verified by a certified Chartered Accountant (CA) in
+> India before filing.** Not tax, legal, or financial advice.
 
-<https://abhi4u1947.github.io/IBKR-Indian-Tax-Buddy-Docs/>
+## What's here
 
-## How publishing works
+This repository holds the documentation site (MkDocs Material) and UI
+screenshots for the IBKR Indian Tax Assistant. It is **generated** from the
+`docs/` tree of the application repository and pushed here automatically — do
+not hand-edit; change the docs in the application repo instead.
 
-Every push to `main` (or the `claude/github-pages-website-dyc8w7` development
-branch) triggers the [`Deploy docs site to GitHub Pages`](.github/workflows/pages.yml)
-workflow, which builds the Jekyll site and deploys it to GitHub Pages. The
-workflow enables Pages automatically on first run, so no manual Settings step
-is required.
+| Path | Contents |
+|---|---|
+| `docs/` | Architecture, system design, database/ER, API reference, tax rules, security, go-live runbook, pricing/GTM, roadmap, changelog, disclaimer |
+| `docs/assets/screenshots/` | UI screenshots (landing, pricing, dashboard, results, assistant, Schedule FA, admin) |
+| `mkdocs.yml` | Site configuration |
+| `.github/workflows/pages.yml` | Builds + deploys to GitHub Pages on every push to `main` |
 
-## Local development
+## Build locally
 
 ```bash
-bundle install
-bundle exec jekyll serve
+pip install -r requirements.txt
+mkdocs serve   # http://127.0.0.1:8000
 ```
-
-Then open <http://localhost:4000/IBKR-Indian-Tax-Buddy-Docs/>.
-
-## Structure
-
-- `index.md` — site home page.
-- `docs/` — documentation pages.
-- `_config.yml` — Jekyll and theme configuration.
-- `.github/workflows/pages.yml` — build and deploy workflow.
