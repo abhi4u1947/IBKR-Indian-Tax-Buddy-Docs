@@ -20,30 +20,34 @@ need for your Indian income-tax return.
 
 ## What it does
 
-IBKR Indian Tax Buddy reads your Interactive Brokers activity statements and
-helps you assemble the numbers an Indian resident typically needs at filing
-time, including:
+If you are an Indian resident investing through Interactive Brokers, filing
+your return means pulling apart broker statements that were never designed for
+Indian tax rules. IBKR Indian Tax Buddy reads your IBKR activity data and helps
+you assemble the numbers you typically need at filing time:
 
-- **Capital gains** on the sale of US shares and ETFs.
-- **Dividend income** received from foreign securities.
-- **Foreign Asset (Schedule FA)** disclosure details for holdings in your IBKR
-  account.
+- **Capital gains** on the sale of US shares and ETFs, split into short-term and
+  long-term, with proceeds and cost converted to INR.
+- **Dividend income** received from foreign securities, along with the US tax
+  withheld at source (relevant for your foreign tax credit claim).
+- **Foreign Asset (Schedule FA)** disclosure details for the holdings in your
+  IBKR account, reported on the calendar-year basis the schedule requires.
 
 The goal is to take the manual, error-prone work of reconciling broker
-statements and turn it into a clear, reviewable set of figures.
+statements — and the currency conversion that goes with it — and turn it into a
+clear, reviewable set of figures.
 
-## Documentation
+## How to use these docs
 
-This site hosts the full documentation for the project. Use the navigation on
-the left to browse the guides.
-
-{: .note }
-> The detailed guides are being imported from the project's source repository.
-> The site structure, navigation, and publishing pipeline are live now, and the
-> content pages are filled in as the prepared docs are added.
+| Guide | What it covers |
+|:------|:---------------|
+| [Getting started](docs/getting-started) | Exporting the right statement from IBKR and producing your first set of figures. |
+| [Concepts](docs/concepts) | How Indian tax rules apply to a foreign brokerage account — capital gains, dividends, and Schedule FA. |
+| [FAQ](docs/faq) | Common questions about statements, currency conversion, and edge cases. |
 
 ## Disclaimer
 
-IBKR Indian Tax Buddy is a tool to assist with preparing tax figures. It is
+IBKR Indian Tax Buddy is a tool to assist with **preparing** tax figures. It is
 **not** tax advice and is not a substitute for a qualified tax professional.
-Always review the computed figures against your own records before filing.
+Tax rates, thresholds, and disclosure rules change with each Finance Act —
+always review the computed figures against your own records and current law, or
+with your tax advisor, before filing.
