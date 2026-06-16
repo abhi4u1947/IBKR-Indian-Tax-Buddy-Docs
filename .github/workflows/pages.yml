@@ -1,50 +1,49 @@
-name: Deploy docs site to GitHub Pages
+# GitHub Pages deploy for the IBKR Indian Tax Assistant docs site.
+# This workflow lives in the PUBLIC docs repo (abhi4u1947/IBKR-Indian-Tax-Buddy-Docs).
+# Because that repo is public, the workflow token can enable Pages and publish to
+# https://abhi4u1947.github.io/IBKR-Indian-Tax-Buddy-Docs/ with no extra secrets.
+name: Docs site (MkDocs → GitHub Pages)
 
 on:
   push:
-    branches:
-      - main
-      - claude/github-pages-website-dyc8w7
+    branches: [main]
   workflow_dispatch:
 
-# Allow the workflow to enable Pages, create the deployment, and authenticate.
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment; don't cancel an in-progress run.
 concurrency:
-  group: "pages"
+  group: pages
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+      - uses: actions/setup-python@v5
         with:
-          ruby-version: "3.2"
-          bundler-cache: true
+          python-version: "3.11"
+          cache: pip
 
-      - name: Configure Pages
-        id: pages
-        uses: actions/configure-pages@v5
-        with:
-          # Automatically enable Pages on this repo (no manual Settings step).
-          enablement: true
+      - name: Install MkDocs
+        run: pip install -r requirements.txt
 
       - name: Build site
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
+        run: mkdocs build --clean
 
-      - name: Upload artifact
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
 
   deploy:
     needs: build

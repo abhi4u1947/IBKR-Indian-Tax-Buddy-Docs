@@ -1,0 +1,118 @@
+site_name: IBKR Indian Tax Assistant
+site_description: >-
+  Reference assistance for Indian tax residents who invest globally through
+  Interactive Brokers (IBKR) — capital-gains, dividend, FTC and Schedule FA
+  tooling that produces audit-ready, CA-reviewable working papers.
+site_url: https://abhi4u1947.github.io/IBKR-Indian-Tax-Buddy-Docs/
+site_author: abhi4u1947
+
+repo_url: https://github.com/abhi4u1947/IBKR-Indian-Tax-Buddy-Docs
+repo_name: abhi4u1947/IBKR-Indian-Tax-Buddy-Docs
+edit_uri: edit/main/docs/
+
+docs_dir: docs
+use_directory_urls: true
+
+copyright: >-
+  Reference assistance only — all tax outputs are estimates and
+  <strong>must be verified by a certified Chartered Accountant (CA) in India
+  before filing</strong>. Not tax, legal or financial advice.
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.tracking
+    - navigation.indexes
+    - content.code.copy
+    - content.code.annotate
+    - search.suggest
+    - search.highlight
+    - toc.integrate
+  palette:
+    # Light mode — deep blue brand
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode — emerald accent
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  icon:
+    repo: fontawesome/brands/github
+  # logo: assets/logo.png        # optional — drop a file in docs/assets/
+  # favicon: assets/favicon.png  # optional
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/abhi4u1947/IBKR-Indian-Tax-Buddy-Docs
+  disclaimer: >-
+    Tax calculations are estimates and should be reviewed by a qualified tax
+    professional before filing. This product provides reference assistance only
+    and must be verified by a certified Chartered Accountant (CA) in India
+    before filing.
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+
+plugins:
+  - search
+  - mermaid2:
+      # Pin the mermaid runtime explicitly so the plugin does not depend on its
+      # built-in default (whose unpkg ESM URL 404s). jsdelivr serves a stable,
+      # CI-reachable copy that renders the ```mermaid diagrams client-side.
+      version: 10.9.1
+      javascript: https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Go-Live Runbook: GO_LIVE_RUNBOOK.md
+      - Deployment: DEPLOYMENT.md
+  - Architecture:
+      - Architecture: ARCHITECTURE.md
+      - System Design: SYSTEM_DESIGN.md
+      - Database: DATABASE.md
+      - API Reference: API_REFERENCE.md
+  - Tax & Compliance:
+      - Tax Rules: TAX_RULES.md
+      - Security: SECURITY.md
+      - Disclaimer: DISCLAIMER.md
+  - Business:
+      - Pricing & GTM: PRICING_GTM.md
+      - Cost Estimates: COST_ESTIMATES.md
+  - Project:
+      - Roadmap: ROADMAP.md
+      - Changelog: CHANGELOG.md
+  - Screenshots: SCREENSHOTS.md
